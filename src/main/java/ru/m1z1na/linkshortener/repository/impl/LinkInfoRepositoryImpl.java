@@ -10,8 +10,8 @@ public class LinkInfoRepositoryImpl implements LinkInfoRepository {
     private final Map<String, LinkInfo> storage = new ConcurrentHashMap<>();
 
     @Override
-    public Optional<LinkInfo> findByShortLink(String link) {
-        return Optional.ofNullable(storage.get(link));
+    public Optional<LinkInfo> findByShortLink(String shortLink) {
+        return Optional.ofNullable(storage.get(shortLink));
     }
 
     @Override
@@ -19,6 +19,5 @@ public class LinkInfoRepositoryImpl implements LinkInfoRepository {
         storage.put(link.getShortLink(), link);
         return link;
     }
-
 
 }

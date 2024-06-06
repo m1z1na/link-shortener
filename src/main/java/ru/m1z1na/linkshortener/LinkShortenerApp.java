@@ -4,13 +4,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import ru.m1z1na.linkshortener.dto.CreateShortLinkRequestDto;
 import ru.m1z1na.linkshortener.service.LinkInfoService;
-
 import java.time.ZonedDateTime;
 
 @SpringBootApplication
 public class LinkShortenerApp {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args){
         SpringApplication.run(LinkShortenerApp.class);
         LinkInfoService linkService = new LinkInfoService();
 
@@ -22,5 +21,6 @@ public class LinkShortenerApp {
                         true);
 
         System.out.println(linkService.getByShortLink(linkService.createLinkInfo(shortLinkRequest).getShortLink()).equals(shortLinkRequest.getLink()));
+        System.out.println(linkService.getByShortLink("aaaa").equals(shortLinkRequest.getLink()));
     }
 }

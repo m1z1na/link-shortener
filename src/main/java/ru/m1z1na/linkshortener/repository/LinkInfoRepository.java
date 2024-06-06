@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public interface LinkInfoRepository {
 
-    Optional<LinkInfo> findByShortLink(String link);
+    Optional<LinkInfo> findByShortLink(String shortLink);
 
     LinkInfo save(LinkInfo link);
 

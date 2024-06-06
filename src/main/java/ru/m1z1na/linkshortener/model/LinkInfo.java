@@ -16,7 +16,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class LinkInfo {
 
-    private UUID id = UUID.randomUUID();
+    private UUID id;
     private String link;
     private ZonedDateTime endTime;
     private String description;
