@@ -2,6 +2,8 @@ package ru.m1z1na.linkshortener;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import ru.m1z1na.LoggingConfiguration;
+import ru.m1z1na.LoggingConfigurationGradle;
 import ru.m1z1na.linkshortener.dto.CreateShortLinkRequestDto;
 import ru.m1z1na.linkshortener.service.LinkInfoService;
 import java.time.ZonedDateTime;
@@ -12,6 +14,9 @@ public class LinkShortenerApp {
     public static void main(String[] args){
         SpringApplication.run(LinkShortenerApp.class);
         LinkInfoService linkService = new LinkInfoService();
+
+        LoggingConfiguration.testLog("maven test");
+        LoggingConfigurationGradle.testLog("gradle test");
 
         CreateShortLinkRequestDto shortLinkRequest =
                 new CreateShortLinkRequestDto(
