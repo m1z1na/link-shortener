@@ -44,4 +44,13 @@ public class LinkInfo {
         return Objects.hashCode(id);
     }
 
+    @Override
+    public String toString() {
+        return "LinkInfo{" +
+                "id=" + id +
+                ", link='" + link + '\'' +
+                ", description='" + description + '\'' +
+                ", shortLink='" + shortLink + '\'' +
+                '}';
+    }
 }

@@ -1,0 +1,9 @@
+spring:
+  main:
+    banner-mode: 'off'
+link-shortener:
+  short-link-length: 8
+logging:
+  pattern:
+    level:
+      level: INFO
