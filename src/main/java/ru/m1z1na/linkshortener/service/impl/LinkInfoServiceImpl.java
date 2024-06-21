@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import ru.m1z1na.linkshortener.dto.CreateShortLinkRequestDto;
 import ru.m1z1na.linkshortener.exception.NotFoundException;
+import ru.m1z1na.linkshortener.map.LinkMapper;
 import ru.m1z1na.linkshortener.model.LinkInfo;
 import ru.m1z1na.linkshortener.repository.LinkInfoRepository;
 import ru.m1z1na.linkshortener.service.LinkInfoService;
@@ -21,12 +22,15 @@ public class LinkInfoServiceImpl implements LinkInfoService {
     @Autowired
     private final LinkInfoRepository linkInfoRepository;
 
-    public LinkInfoServiceImpl(LinkInfoRepository linkInfoRepository) {
+    private final LinkMapper linkMapper;
+
+    public LinkInfoServiceImpl(LinkInfoRepository linkInfoRepository, LinkMapper linkMapper) {
         this.linkInfoRepository = linkInfoRepository;
+        this.linkMapper = linkMapper;
     }
 
     public LinkInfo createLinkInfo(CreateShortLinkRequestDto request) {
-        LinkInfo link = new LinkInfo(request);
+        LinkInfo link = linkMapper.getEntityFromDto(request);
         link.setId(UUID.randomUUID());
         link.setShortLink(RandomStringUtils.randomAlphanumeric(shortLinkLength));
         return linkInfoRepository.save(link);
