@@ -1,8 +1,11 @@
 spring:
+  profiles:
+    active: dev
   main:
     banner-mode: 'off'
 link-shortener:
   short-link-length: 8
+  execution-proxy: true
 logging:
   pattern:
     level:
