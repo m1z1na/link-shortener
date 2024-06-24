@@ -13,7 +13,7 @@ import ru.m1z1na.linkshortener.service.LinkInfoService;
 @Slf4j
 @RequiredArgsConstructor
 @Profile("dev")
-@ConditionalOnProperty("link-shortener.execution-proxy")
+@ConditionalOnProperty("link-shortener.enable-log-exec-time")
 @Service("linkInfoServiceProxy")
 public class LogExecutionTimeLinkInfoServiceProxy implements LinkInfoService {
     private final LinkInfoService linkInfoService;

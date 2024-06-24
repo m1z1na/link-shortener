@@ -5,7 +5,7 @@ spring:
     banner-mode: 'off'
 link-shortener:
   short-link-length: 8
-  execution-proxy: true
+  enable-log-exec-time: true
 logging:
   pattern:
     level:

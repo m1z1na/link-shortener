@@ -30,7 +30,7 @@ public class LinkInfoServiceImpl implements LinkInfoService {
     public CreateShortLinkResponseDto createLinkInfo(CreateShortLinkRequestDto request) {
         LinkInfo link = linkMapper.getEntityFromDto(request);
         link.setId(UUID.randomUUID());
-        link.setShortLink(RandomStringUtils.randomAlphanumeric(linkShortenerProperty.shortLinkLength()));
+        link.setShortLink(RandomStringUtils.randomAlphanumeric(linkShortenerProperty.getShortLinkLength()));
         linkInfoRepository.save(link);
 
         return CreateShortLinkResponseDto.builder()
@@ -39,7 +39,8 @@ public class LinkInfoServiceImpl implements LinkInfoService {
                 .endTime(link.getEndTime())
                 .description(link.getDescription())
                 .active(link.getActive())
-                .shortLink(link.getShortLink()).build();
+                .shortLink(link.getShortLink())
+                .build();
     }
 
     public String getByShortLink(String shortLink) {

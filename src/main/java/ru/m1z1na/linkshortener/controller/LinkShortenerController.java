@@ -18,7 +18,7 @@ import ru.m1z1na.linkshortener.service.LinkInfoService;
 public class LinkShortenerController {
     private final LinkInfoService linkInfoService;
 
-    @GetMapping("short-link/{shortLink}")
+    @GetMapping("/short-link/{shortLink}")
     public ResponseEntity<String> getByShortLink(@PathVariable String shortLink) {
         log.info("Поступил запрос на открытие длинной ссылки по короткой: {}", shortLink);
         var link = linkInfoService.getByShortLink(shortLink);

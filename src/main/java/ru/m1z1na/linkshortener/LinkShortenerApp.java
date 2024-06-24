@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 @SpringBootApplication
-@ConfigurationPropertiesScan(basePackages = {"ru.m1z1na.linkshortener"})
 public class LinkShortenerApp {
 
     public static void main(String[] args) {

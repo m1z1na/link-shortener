@@ -15,7 +15,7 @@ import ru.m1z1na.linkshortener.service.LinkInfoService;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/link-info")
+@RequestMapping("/api/v1/link-infos")
 public class AdminController {
 
     private final LinkInfoService linkInfoService;
