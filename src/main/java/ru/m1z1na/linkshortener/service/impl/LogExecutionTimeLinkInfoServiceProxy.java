@@ -8,7 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StopWatch;
 import ru.m1z1na.linkshortener.dto.CreateShortLinkRequestDto;
 import ru.m1z1na.linkshortener.dto.CreateShortLinkResponseDto;
+import ru.m1z1na.linkshortener.model.LinkInfo;
 import ru.m1z1na.linkshortener.service.LinkInfoService;
+
+import java.util.List;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -40,5 +43,15 @@ public class LogExecutionTimeLinkInfoServiceProxy implements LinkInfoService {
             stopWatch.stop();
             log.info("Время получения ссылки составляет {} наносекунд", stopWatch.getTotalTimeNanos());
         }
+    }
+
+    @Override
+    public List<LinkInfo> findAll() {
+        return findAll();
+    }
+
+    @Override
+    public void delete(String shortLink) {
+        delete(shortLink);
     }
 }

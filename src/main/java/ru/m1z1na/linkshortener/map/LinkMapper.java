@@ -9,5 +9,4 @@ import ru.m1z1na.linkshortener.model.LinkInfo;
 public interface LinkMapper {
     @InheritInverseConfiguration
     LinkInfo getEntityFromDto(CreateShortLinkRequestDto shortLinkRequest);
-
 }

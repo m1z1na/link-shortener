@@ -1,14 +1,11 @@
 package ru.m1z1na.linkshortener.dto.common;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.List;
 
-@Data
+
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class CommonResponse  <T>{
-    private T body;
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public record CommonResponse<T>(T body, String errorMessage, List<ValidationError> validationErrorList) {
 }

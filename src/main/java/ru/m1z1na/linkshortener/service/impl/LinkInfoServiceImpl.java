@@ -11,6 +11,7 @@ import ru.m1z1na.linkshortener.property.LinkShortenerProperty;
 import ru.m1z1na.linkshortener.repository.LinkInfoRepository;
 import ru.m1z1na.linkshortener.service.LinkInfoService;
 
+import java.util.List;
 import java.util.UUID;
 
 
@@ -29,6 +30,8 @@ public class LinkInfoServiceImpl implements LinkInfoService {
 
     public CreateShortLinkResponseDto createLinkInfo(CreateShortLinkRequestDto request) {
         LinkInfo link = linkMapper.getEntityFromDto(request);
+//        System.out.println(linkMapper.fromCreateRequest(request));
+        System.out.println(link);
         link.setId(UUID.randomUUID());
         link.setShortLink(RandomStringUtils.randomAlphanumeric(linkShortenerProperty.getShortLinkLength()));
         linkInfoRepository.save(link);
@@ -47,5 +50,15 @@ public class LinkInfoServiceImpl implements LinkInfoService {
         LinkInfo link = linkInfoRepository.findByShortLink(shortLink)
                 .orElseThrow(() -> new NotFoundException(String.format("link %s not found", shortLink)));
         return link.getLink();
+    }
+
+    @Override
+    public List<LinkInfo> findAll() {
+        return linkInfoRepository.findAll();
+    }
+
+    @Override
+    public void delete(String shortLink) {
+        linkInfoRepository.delete(shortLink);
     }
 }
